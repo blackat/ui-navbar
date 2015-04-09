@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="App">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Navbar Demo</title>
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="dist/css/navbar.css">
+</head>
+<body>
+
+<div ng-controller="NavigationController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true"
+                    ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+
+            <ul class="nav navbar-nav">
+                <li dropdown>
+                    <a href="#" dropdown-toggle>
+                        Dropdown
+                        <b class='caret'></b>
+                    </a>
+                    <tree tree='tree'></tree>
+                </li>
+                <li dropdown>
+                    <a href="#" dropdown-toggle>
+                        Just a clone
+                        <span class='caret'></span>
+                    </a>
+                    <tree tree='tree'></tree>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
+
+</body>
+<!-- AngularJS -->
+<script src="/node_modules/angular/angular.js"></script>
+
+<!-- AngularJS Modules -->
+<script src="/node_modules/angular-bootstrap/dist/ui-bootstrap.min.js"></script>
+<script src="/node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.min.js"></script>
+
+<!-- Inwo Modules -->
+<script src="dist/js/navbar.js"></script>
+<script src="app.js"></script>
+</html>
