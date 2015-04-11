@@ -1,0 +1,2 @@
+test/fixtures/dontlint.txt
+node_modules/**

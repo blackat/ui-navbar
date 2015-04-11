@@ -9,22 +9,56 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
+        dist: 'dist',
+        filename: 'ui-navbar',
+        meta: {},
+
+        concat: {
+            dist: {
+                src: [
+                    'src/**/*.js',
+                    'template/**/*.js'
+                ],
+                dest: 'dist/js/<%= filename %>.js'
+            }
+        },
+
         uglify: {
-            build: {
-                files: {
-                    'dist/js/navbar-min.js': ['src/navbar.js']
-                }
+            dist: {
+                src: ['dist/js/<%= filename %>.js'],
+                dest: 'dist/js/<%= filename %>.min.js'
             }
         },
 
         cssmin: {
             build: {
-                src: 'css/navbar.css',
-                dest: 'dist/css/navbar.min.css'
+                src: 'css/<%=  filename %>.css',
+                dest: 'dist/css/<%= filename %>.min.css'
+            }
+        },
+
+        jshint: {
+            files: ['Gruntfile.js', 'src/**/*.js'],
+            options: {
+                jshintrc: '.jshintrc'
+            }
+        },
+
+        html2js: {
+            dist: {
+                options: {
+                    module: null, // no bundle for all the templates
+                    base: '.'
+                },
+                files: [{
+                    expand: true,
+                    src: ['template/**/*.html'],
+                    ext: '.html.js'
+                }]
             }
         }
     });
 
-    grunt.registerTask('default', ['uglify']);
+    grunt.registerTask('default', ['jshint','html2js','concat','uglify','cssmin']);
 
 };
