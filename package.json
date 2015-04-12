@@ -1,7 +1,7 @@
 {
   "name": "ui-navbar",
-  "version": "1.0.0",
-  "author": "Eugenio Lentini",
+  "version": "0.1.0",
+  "author": "Eugenio Lentini <eugenio_lentini@fastmail.fm> (http://blackat.github.io)",
   "repository": {
     "type": "git",
     "url": "git@github.com:blackat/ui-navbar.git"
@@ -15,10 +15,20 @@
     "grunt-contrib-uglify": "~0.9.1",
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-concat": "~0.5.1",
+    "grunt-contrib-copy": "~0.8.0",
     "grunt-htmlhint": "*",
     "grunt-html2js": "~0.3.2",
     "time-grunt": "~1.1.0",
     "load-grunt-tasks": "~3.1.0"
   },
+  "main": "ui-navbar.js",
+  "keywords": [
+    "navbar",
+    "submenu",
+    "menu",
+    "navigation",
+    "angularjs",
+    "responsive"
+  ],
   "license": "MIT"
 }

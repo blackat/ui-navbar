@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navbar Demo</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/navbar.css">
+    <link rel="stylesheet" href="dist/css/ui-navbar.css">
 </head>
 <body>
 
@@ -19,7 +19,7 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="#">Brand</a>
+            <a class="navbar-brand" ui-sref="home">Brand</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
@@ -46,6 +46,8 @@
     </nav>
 </div>
 
+<div ui-view></div>
+
 </body>
 <!-- AngularJS -->
 <script src="/node_modules/angular/angular.js"></script>
@@ -53,8 +55,9 @@
 <!-- AngularJS Modules -->
 <script src="/node_modules/angular-bootstrap/dist/ui-bootstrap.min.js"></script>
 <script src="/node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.min.js"></script>
+<script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 
 <!-- Inwo Modules -->
-<script src="dist/js/navbar.js"></script>
+<script src="dist/js/ui-navbar.js"></script>
 <script src="app.js"></script>
 </html>

@@ -1,34 +1,59 @@
 'use strict';
 
-var App = angular.module('App', ['ui.bootstrap', 'ui.navbar']);
+angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
 
-App.controller('NavigationController', function($scope){
+    .config(function ($stateProvider, $urlRouterProvider) {
 
-    $scope.tree = [{
-        name: "Bob",
-        link: "#",
-        subtree: [{
-            name: "Ann",
+        // For any unmatched url, redirect to /state1
+        $urlRouterProvider.otherwise("/home");
+
+        // Now set up the states
+        $stateProvider
+            .state('home', {
+                url: "/home",
+                templateUrl: "partials/home.html"
+            })
+            .state('state1', {
+                url: "/state1",
+                templateUrl: "partials/state1.html"
+            })
+            .state('state2', {
+                url: "/state2",
+                templateUrl: "partials/state2.html"
+            });
+    })
+
+    .controller('NavigationController', function ($scope) {
+
+        $scope.tree = [{
+            name: "States",
+            link: "#",
+            subtree: [{
+                name: "state 1",
+                link: "state1"
+            },{
+                name: "state 2",
+                link: "state2"
+            }]
+        }, {
+            name: "No states",
+            link: "#",
+            subtree: [{
+                name: "no state connected",
+                link: "#"
+            }]
+        }, {
+            name: "divider",
             link: "#"
-        }]
-    }, {
-        name: "Jon",
-        link: "#",
-        subtree: [{
-            name: "Mary",
+
+        }, {
+            name: "State has not been set up",
             link: "#"
-        }]
-    }, {
-        name: "divider",
-        link: "#"
-    }, {
-        name: "Another person",
-        link: "#"
-    }, {
-        name: "divider",
-        link: "#"
-    }, {
-        name: "Again another person",
-        link: "#"
-    }];
-});
+        }, {
+            name: "divider",
+            link: "#"
+        }, {
+            name: "Here again no state set up",
+            link: "#"
+        }];
+    });

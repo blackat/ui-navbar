@@ -24,11 +24,6 @@ angular.module('ui.navbar', ['ui.bootstrap', 'template/navbar-ul.html', 'templat
                     element.append('<tree tree=\"leaf.subtree\"></tree>');
                     element.addClass('dropdown-submenu');
                     $compile(element.contents())(scope);
-                } else {
-                    element.bind('click', function () {
-                        // load the page  scope.leaf.name;
-                    });
-
                 }
             }
         };

@@ -37,6 +37,14 @@ module.exports = function (grunt) {
             }
         },
 
+        copy: {
+            main: {
+                files: [
+                    {expand: true, src: ['css/ui-navbar.css'], dest: 'dist/', filter: 'isFile'}
+                ]
+            }
+        },
+
         jshint: {
             files: ['Gruntfile.js', 'src/**/*.js'],
             options: {
@@ -59,6 +67,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', ['jshint','html2js','concat','uglify','cssmin']);
+    grunt.registerTask('build', ['jshint','html2js','concat','uglify','cssmin', 'copy']);
 
 };
