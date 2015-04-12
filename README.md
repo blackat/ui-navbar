@@ -1,7 +1,9 @@
 # ui-navbar - Responsive navigation bar with submenu in AngularJS
+
 [![Build Status](https://travis-ci.org/blackat/ui-navbar.svg?branch=master)](https://travis-ci.org/blackat/ui-navbar)
 [![devDependency Status](https://david-dm.org/blackat/ui-navbar/dev-status.svg?branch=master)](https://david-dm.org/blackat/ui-navbar#info=devDependencies)
 
+## Quick description
 Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion using ui-router to load partials. The menu items as well as the corresponding states are set in a `json` object in the `$scope` as following:
 
     $scope.tree = [{
