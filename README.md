@@ -14,8 +14,7 @@ Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=preview)
 
 ## How to use this stuff
 
-1. Html part for the nav bar:
- 
+#### 1) Html part for the nav bar:
 ```html
 <div ng-controller="NavigationController">
     <nav class="navbar navbar-default" role="navigation">
@@ -55,12 +54,12 @@ Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=preview)
 </div>
 ```
 
-2. Html part to hook the partials
+#### 2) Html part to hook the partials
 ```html
 <!-- Hook here the partials -->
 <div ui-view=""></div>
 ```
-3. Configure routing in your module adding required dependencies
+#### 3) Configure routing in your module adding required dependencies
 ```javascript
 angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
 
@@ -85,8 +84,7 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
             });
     })
 ```
-4. Configure the controller adding the menu item to be displayed in the nav bar 
-
+#### 4) Configure the controller adding the menu item to be displayed in the nav bar 
 ```javascript
 .controller('NavigationController', function ($scope) {
 
