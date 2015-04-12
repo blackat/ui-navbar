@@ -1,7 +1,8 @@
 {
   "name": "ui-navbar",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "author": "Eugenio Lentini <eugenio_lentini@fastmail.fm> (http://blackat.github.io)",
+  "description": "Angular responsive navigation with recursive menu and sub-menu construction",
   "repository": {
     "type": "git",
     "url": "git@github.com:blackat/ui-navbar.git"
@@ -22,6 +23,9 @@
   },
   "main": "dist/ui-navbar.js",
   "keywords": [
+    "ui-boostrap",
+    "boostrap",
+    "ui-router",
     "navbar",
     "submenu",
     "menu",
