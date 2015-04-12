@@ -16,106 +16,110 @@ Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=preview)
 
 1. Html part for the nav bar:
  
-    <div ng-controller="NavigationController">
-        <nav class="navbar navbar-default" role="navigation">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" ng-init="navCollapsed = true"
-                        ng-click="navCollapsed = !navCollapsed">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" ui-sref="home">Brand</a>
-            </div>
-    
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-    
-                <ul class="nav navbar-nav">
-                    <li dropdown>
-                        <a href="#" dropdown-toggle>
-                            Dropdown
-                            <b class='caret'></b>
-                        </a>
-                        <tree tree='tree'></tree>
-                    </li>
-                    <li dropdown>
-                        <a href="#" dropdown-toggle>
-                            Just a clone
-                            <span class='caret'></span>
-                        </a>
-                        <tree tree='tree'></tree>
-                    </li>
-                </ul>
-            </div>
-            <!-- /.navbar-collapse -->
-        </nav>
-    </div>
+```html
+<div ng-controller="NavigationController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true"
+                    ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">Brand</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+
+            <ul class="nav navbar-nav">
+                <li dropdown>
+                    <a href="#" dropdown-toggle>
+                        Dropdown
+                        <b class='caret'></b>
+                    </a>
+                    <tree tree='tree'></tree>
+                </li>
+                <li dropdown>
+                    <a href="#" dropdown-toggle>
+                        Just a clone
+                        <span class='caret'></span>
+                    </a>
+                    <tree tree='tree'></tree>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
+```
 
 2. Html part to hook the partials
-
-    <!-- Hook here the partials -->
-    <div ui-view=""></div>
-
+```html
+<!-- Hook here the partials -->
+<div ui-view=""></div>
+```
 3. Configure routing in your module adding required dependencies
+```javascript
+angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
 
-    angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
-    
-        .config(function ($stateProvider, $urlRouterProvider) {
-    
-            // For any unmatched url, redirect to /state1
-            $urlRouterProvider.otherwise("/home");
-    
-            // Now set up the states
-            $stateProvider
-                .state('home', {
-                    url: "/home",
-                    templateUrl: "partials/home.html"
-                })
-                .state('state1', {
-                    url: "/state1",
-                    templateUrl: "partials/state1.html"
-                })
-                .state('state2', {
-                    url: "/state2",
-                    templateUrl: "partials/state2.html"
-                });
-        })
-    
+    .config(function ($stateProvider, $urlRouterProvider) {
+
+        // For any unmatched url, redirect to /state1
+        $urlRouterProvider.otherwise("/home");
+
+        // Now set up the states
+        $stateProvider
+            .state('home', {
+                url: "/home",
+                templateUrl: "partials/home.html"
+            })
+            .state('state1', {
+                url: "/state1",
+                templateUrl: "partials/state1.html"
+            })
+            .state('state2', {
+                url: "/state2",
+                templateUrl: "partials/state2.html"
+            });
+    })
+```
 4. Configure the controller adding the menu item to be displayed in the nav bar 
 
-        .controller('NavigationController', function ($scope) {
-    
-            $scope.tree = [{
-                name: "States",
-                link: "#",
-                subtree: [{
-                    name: "state 1",
-                    link: "state1"
-                },{
-                    name: "state 2",
-                    link: "state2"
-                }]
-            }, {
-                name: "No states",
-                link: "#",
-                subtree: [{
-                    name: "no state connected",
-                    link: "#"
-                }]
-            }, {
-                name: "divider",
+```javascript
+.controller('NavigationController', function ($scope) {
+
+        $scope.tree = [{
+            name: "States",
+            link: "#",
+            subtree: [{
+                name: "state 1",
+                link: "state1"
+            },{
+                name: "state 2",
+                link: "state2"
+            }]
+        }, {
+            name: "No states",
+            link: "#",
+            subtree: [{
+                name: "no state connected",
                 link: "#"
-    
-            }, {
-                name: "State has not been set up",
-                link: "#"
-            }, {
-                name: "divider",
-                link: "#"
-            }, {
-                name: "Here again no state set up",
-                link: "#"
-            }];
-        });
+            }]
+        }, {
+            name: "divider",
+            link: "#"
+
+        }, {
+            name: "State has not been set up",
+            link: "#"
+        }, {
+            name: "divider",
+            link: "#"
+        }, {
+            name: "Here again no state set up",
+            link: "#"
+        }];
+    });
+```
