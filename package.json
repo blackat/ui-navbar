@@ -21,7 +21,7 @@
     "time-grunt": "~1.1.0",
     "load-grunt-tasks": "~3.1.0"
   },
-  "main": "ui-navbar.js",
+  "main": "dist/ui-navbar.js",
   "keywords": [
     "navbar",
     "submenu",
