@@ -23,7 +23,8 @@ Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion 
 - unlimited level of nesting
 - responsive
 - fully compatible with AngularJS
-- Standard Html5 with AngularJS Boostrap attributes
+- Standard Html5 with AngularJS Boostrap attributes such as `dropdown`
+- no jquery reuquire to manage responsivness and dropdown actions
 
 ## How this stuff is
 It is a collection of directives and templates to create recursively a navigation bar in AngularJS based on Html attributes used to define a dropdown menu defined in ui-boostrap package.
