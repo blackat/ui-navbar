@@ -2,7 +2,28 @@
 [![Build Status](https://travis-ci.org/blackat/ui-navbar.svg?branch=master)](https://travis-ci.org/blackat/ui-navbar)
 [![devDependency Status](https://david-dm.org/blackat/ui-navbar/dev-status.svg?branch=master)](https://david-dm.org/blackat/ui-navbar#info=devDependencies)
 
-Build a responsive navigation bar with sub-menu using ui-router to load partials 
+Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion using ui-router to load partials. The menu items as well as the corresponding states are set in a `json` object in the `$scope` as following:
+
+    $scope.tree = [{
+            name: "States",
+            link: "#",
+            subtree: [{
+                name: "state 1",
+                link: "state1"
+            },{
+                name: "state 2",
+                link: "state2"
+            }]
+        }];
+
+## Features
+
+- recursive item menu definition in `json` format
+- easy way to define a `divider` between items
+- unlimited level of nesting
+- responsive
+- fully compatible with AngularJS
+- Standard Html5 with AngularJS Boostrap attributes
 
 ## How this stuff is
 It is a collection of directives and templates to create recursively a navigation bar in AngularJS based on Html attributes used to define a dropdown menu defined in ui-boostrap package.
