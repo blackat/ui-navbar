@@ -1,6 +1,6 @@
 {
   "name": "ui-navbar",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "author": "Eugenio Lentini <eugenio_lentini@fastmail.fm> (http://blackat.github.io)",
   "description": "Angular responsive navigation with recursive menu and sub-menu construction",
   "repository": {
@@ -18,8 +18,8 @@
     "grunt-contrib-copy": "~0.8.0",
     "grunt-htmlhint": "*",
     "grunt-html2js": "~0.3.2",
-    "time-grunt": "~1.1.0",
-    "load-grunt-tasks": "~3.1.0"
+    "time-grunt": "~1.2.0",
+    "load-grunt-tasks": "~3.2.0"
   },
   "main": "dist/ui-navbar.js",
   "keywords": [
