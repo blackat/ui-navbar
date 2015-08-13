@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Navbar Demo</title>
     <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="dist/css/ui-navbar.css">
+    <link rel="stylesheet" href="release/css/ui-navbar.css">
 </head>
 <body>
 
@@ -41,6 +41,22 @@
                     <tree tree='tree'></tree>
                 </li>
             </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li dropdown>
+                    <a href="#" dropdown-toggle>
+                        Dropdown right
+                        <b class='caret'></b>
+                    </a>
+                    <tree tree='tree'></tree>
+                </li>
+                <li dropdown>
+                    <a href="#" dropdown-toggle>
+                        Just a clone right
+                        <span class='caret'></span>
+                    </a>
+                    <tree tree='tree'></tree>
+                </li>
+            </ul>
         </div>
         <!-- /.navbar-collapse -->
     </nav>
@@ -53,11 +69,13 @@
 <script src="/node_modules/angular/angular.js"></script>
 
 <!-- AngularJS Modules -->
-<script src="/node_modules/angular-bootstrap/dist/ui-bootstrap.min.js"></script>
-<script src="/node_modules/angular-bootstrap/dist/ui-bootstrap-tpls.min.js"></script>
+<script src="/node_modules/angular-bootstrap/ui-bootstrap.min.js"></script>
+<script src="/node_modules/angular-bootstrap/ui-bootstrap-tpls.min.js"></script>
 <script src="/node_modules/angular-ui-router/release/angular-ui-router.js"></script>
 
-<!-- Inwo Modules -->
-<script src="dist/js/ui-navbar.js"></script>
+<!-- ui-navbar script -->
+<script src="release/js/ui-navbar.js"></script>
+
+<!-- app script -->
 <script src="app.js"></script>
 </html>

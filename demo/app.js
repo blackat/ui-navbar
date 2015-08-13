@@ -31,9 +31,13 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
             subtree: [{
                 name: "state 1",
                 link: "state1"
-            },{
+            }, {
                 name: "state 2",
-                link: "state2"
+                link: "state2",
+                subtree: [{
+                    name: "state unknown",
+                    link: "state unknown 2",
+                }]
             }]
         }, {
             name: "No states",

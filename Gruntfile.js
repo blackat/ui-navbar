@@ -9,38 +9,38 @@ module.exports = function (grunt) {
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
 
-        dist: 'dist',
+        release: 'release',
         filename: 'ui-navbar',
         meta: {},
 
         concat: {
-            dist: {
+            release: {
                 src: [
                     'src/**/*.js',
                     'template/**/*.js'
                 ],
-                dest: 'dist/js/<%= filename %>.js'
+                dest: 'release/js/<%= filename %>.js'
             }
         },
 
         uglify: {
-            dist: {
-                src: ['dist/js/<%= filename %>.js'],
-                dest: 'dist/js/<%= filename %>.min.js'
+            release: {
+                src: ['release/js/<%= filename %>.js'],
+                dest: 'release/js/<%= filename %>.min.js'
             }
         },
 
         cssmin: {
             build: {
                 src: 'css/<%=  filename %>.css',
-                dest: 'dist/css/<%= filename %>.min.css'
+                dest: 'release/css/<%= filename %>.min.css'
             }
         },
 
         copy: {
             main: {
                 files: [
-                    {expand: true, src: ['css/ui-navbar.css'], dest: 'dist/', filter: 'isFile'}
+                    {expand: true, src: ['css/ui-navbar.css'], dest: 'release/', filter: 'isFile'}
                 ]
             }
         },
@@ -53,7 +53,7 @@ module.exports = function (grunt) {
         },
 
         html2js: {
-            dist: {
+            release: {
                 options: {
                     module: null, // no bundle for all the templates
                     base: '.'
