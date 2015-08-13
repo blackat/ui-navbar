@@ -1,6 +1,6 @@
 {
   "name": "ui-navbar",
-  "version": "0.3.0",
+  "version": "0.2.3",
   "author": "Eugenio Lentini <eugenio_lentini@fastmail.fm> (http://blackat.github.io)",
   "description": "Angular responsive navigation with recursive menu and sub-menu construction",
   "repository": {
