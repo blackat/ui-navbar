@@ -26,11 +26,11 @@ Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion 
 - responsive
 - fully compatible with AngularJS
 - Standard Html5 with AngularJS Bootstrap attributes such as `dropdown`
-- no jquery required to manage responsivness and dropdown actions
+- __no jquery required__ to manage responsivness and dropdown actions
 
 ## Update
 
-- support tag 'navbar-right' from Bootstrap with submenu opening on the left
+- support tag `navbar-right` from Bootstrap with submenu opening on the left
 - submenu corners are more consistent with the rest of the layout
 
 ## How this stuff is
@@ -168,7 +168,7 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
 ```
 
 ## Demo
-From the folder 'demo' type
+From the folder `demo` type
 
     npm install
     node server.js
