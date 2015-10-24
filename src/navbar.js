@@ -11,7 +11,7 @@ angular.module('ui.navbar', ['ui.bootstrap', 'template/navbar-ul.html', 'templat
         };
     })
 
-    .directive('leaf', function ($compile) {
+    .directive('leaf', ['$compile', function ($compile) {
         return {
             restrict: 'E',
             replace: true,
@@ -47,4 +47,4 @@ angular.module('ui.navbar', ['ui.bootstrap', 'template/navbar-ul.html', 'templat
                 }
             }
         };
-    });
+    }]);

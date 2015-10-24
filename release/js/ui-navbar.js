@@ -11,7 +11,7 @@ angular.module('ui.navbar', ['ui.bootstrap', 'template/navbar-ul.html', 'templat
         };
     })
 
-    .directive('leaf', function ($compile) {
+    .directive('leaf', ['$compile', function ($compile) {
         return {
             restrict: 'E',
             replace: true,
@@ -47,7 +47,7 @@ angular.module('ui.navbar', ['ui.bootstrap', 'template/navbar-ul.html', 'templat
                 }
             }
         };
-    });
+    }]);
 angular.module("template/navbar-li.html", []).run(["$templateCache", function($templateCache) {
   $templateCache.put("template/navbar-li.html",
     "<li ng-class=\"{divider: leaf.name == 'divider'}\">\n" +
