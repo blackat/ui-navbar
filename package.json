@@ -9,9 +9,9 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "angular": "^1.4.6",
-    "angular-mocks": "^1.4.6",
-    "angular-ui-bootstrap": "^0.13.4",
+    "angular": "^1.4.7",
+    "angular-mocks": "^1.4.7",
+    "angular-ui-bootstrap": "^0.14.3",
     "angular-ui-router": "^0.2.15",
     "bootstrap": "^3.3.5",
     "grunt": "^0.4.5",
@@ -31,7 +31,7 @@
     "karma": "^0.13.3",
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
-    "load-grunt-tasks": "~3.2.0",
+    "load-grunt-tasks": "~3.3.0",
     "protractor": "^2.1.0",
     "time-grunt": "~1.2.0"
   },

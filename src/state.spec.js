@@ -1,19 +1,19 @@
 angular.module('navbar.test', ['ui.router'], function ($stateProvider, $urlRouterProvider) {
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/home");
+    $urlRouterProvider.otherwise('/home');
 
     // Now set up the states
     $stateProvider
         .state('home', {
-            url: "/home",
-            templateUrl: "home.html"
+            url: '/home',
+            templateUrl: 'home.html'
         })
         .state('state1', {
-            url: "/state1",
-            templateUrl: "state1.html"
+            url: '/state1',
+            templateUrl: 'state1.html'
         })
         .state('state2', {
-            url: "/state2/:id"
+            url: '/state2/:id'
         });
 });
 
