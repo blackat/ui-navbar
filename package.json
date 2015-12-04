@@ -1,6 +1,6 @@
 {
   "name": "ui-navbar",
-  "version": "0.5.1",
+  "version": "0.4.1",
   "author": "Eugenio Lentini <eugenio_lentini@fastmail.fm> (http://blackat.github.io)",
   "description": "Angular responsive navigation with recursive menu and sub-menu construction",
   "repository": {
@@ -21,9 +21,8 @@
     "grunt-contrib-cssmin": "*",
     "grunt-contrib-jshint": "~0.11.1",
     "grunt-contrib-nodeunit": "~0.4.1",
-    "grunt-contrib-uglify": "~0.9.1",
+    "grunt-contrib-uglify": "~0.11.0",
     "grunt-html2js": "~0.3.2",
-    "grunt-htmlhint": "*",
     "grunt-karma": "^0.12.0",
     "grunt-protractor-runner": "^2.0.0",
     "grunt-protractor-webdriver": "^0.2.0",
@@ -32,7 +31,7 @@
     "karma-chrome-launcher": "^0.2.0",
     "karma-jasmine": "^0.3.6",
     "load-grunt-tasks": "~3.3.0",
-    "protractor": "^2.1.0",
+    "protractor": "3.0.0",
     "time-grunt": "~1.2.0"
   },
   "main": "./release/js/ui-navbar.js",
