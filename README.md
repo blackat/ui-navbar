@@ -20,28 +20,38 @@ Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion 
 
 ## Features
 
-- recursive item menu definition in `json` format
-- easy way to define a `divider` between items
-- unlimited level of nesting
-- responsive
-- fully compatible with AngularJS
-- Standard Html5 with AngularJS Bootstrap attributes such as `dropdown`
-- __no jquery required__ to manage responsivness and dropdown actions
+- Recursive item menu definition in `json` format.
+- Easy way to define a `divider` between items.
+- Unlimited level of nesting.
+- Responsive.
+- Fully compatible with AngularJS.
+- Standard Html5 with AngularJS Bootstrap attributes such as `dropdown`.
+- Support tag `navbar-right` from Bootstrap with submenu opening on the left.
+- __No jquery required__ to manage responsivness and dropdown actions.
+
+## Dependencies
+
+- AngularJS, required 1.4.x, tested with 1.4.8.
+- UI Boostrap, required 0.14.0, tested with 1.1.1.
+- ui-router, required 0.2.15, tested with 0.2.15.
+- Twitter Bootstrap, required 3.3.6, tested with 3.3.6.
 
 ## Update
 
-- support tag `navbar-right` from Bootstrap with submenu opening on the left
-- submenu corners are more consistent with the rest of the layout
+-  Prefixed `angular-ui-bootstrap` components in the `index.html` demo page according to the [migration guide](https://github.com/angular-ui/bootstrap/wiki/Migration-guide-for-prefixes).
+- Updated the documentation.
 
-## How this stuff is
+## How it's done
 It is a collection of directives and templates to create recursively a navigation bar in AngularJS based on Html attributes used to define a dropdown menu defined in ui-boostrap package.
 
 Dependencies are [ui-boostrap](https://github.com/angular-ui/bootstrap) to manage dropdown and collapse, then [ui-router](https://github.com/angular-ui/ui-router) to manage routing to partials.
 
 ## Plunkr live demo
-Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=preview)
 
-## How to use this stuff
+- version < 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=info)
+- version > 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/zyxXk6w079OgswKHQgno?p=info)
+
+## How to setup the ui-navbar
 
 #### 1) Install ui-navbar
 Via npm
@@ -73,15 +83,15 @@ bower install ui-navbar --save
         <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
 
             <ul class="nav navbar-nav">
-                <li dropdown>
-                    <a href="#" dropdown-toggle>
+                <li uib-dropdown>
+                    <a href="#" uib-dropdown-toggle>
                         Dropdown
                         <b class='caret'></b>
                     </a>
                     <tree tree='tree'></tree>
                 </li>
-                <li dropdown>
-                    <a href="#" dropdown-toggle>
+                <li uib-dropdown>
+                    <a href="#" uib-dropdown-toggle>
                         Just a clone
                         <span class='caret'></span>
                     </a>
@@ -89,15 +99,15 @@ bower install ui-navbar --save
                 </li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li dropdown>
-                    <a href="#" dropdown-toggle>
+                <li uib-dropdown>
+                    <a href="#" uib-dropdown-toggle>
                         Dropdown right
                         <b class='caret'></b>
                     </a>
                     <tree tree='tree'></tree>
                 </li>
-                <li dropdown>
-                    <a href="#" dropdown-toggle>
+                <li uib-dropdown>
+                    <a href="#" uib-dropdown-toggle>
                         Just a clone right
                         <span class='caret'></span>
                     </a>
@@ -183,3 +193,5 @@ From the folder `demo` type
 
     npm install
     node server.js
+
+then type in a browser `http://localhost:5000` to get the demo page working.
