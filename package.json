@@ -50,7 +50,7 @@
   ],
   "license": "MIT",
   "scripts": {
-    "release": "npm version patch && npm publish && git push --tags",
+    "patch": "npm version patch && npm publish && git push --tags",
     "update-webdriver": "node node_modules/grunt-protractor-runner/node_modules/protractor/bin/webdriver-manager update"
   }
 }
