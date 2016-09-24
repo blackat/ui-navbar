@@ -171,12 +171,10 @@ describe('ui-navbar', function () {
          * </li>
          */
         it('should have the first <ul> element with second element <li> and only one state and a submenu', function () {
-            console.log(element.find('li').eq(0).find('ul').eq(0).find('li'));
             expect(element.find('li').eq(0).find('ul').eq(0).find('li').eq(1).hasClass('dropdown-submenu')).toBeTruthy();
             expect(element.find('li').eq(0).find('ul').eq(0).find('li').eq(1).find('ul').length).toEqual(1);
         });
 
-        // todo check them
         it('should have the second <ul> element with one first nested element <li> and only one state', function () {
             // get the second nested li
             expect(element.find('li').eq(0).find('ul').eq(0).find('li').eq(1).find('a').length).toEqual(2);
@@ -184,9 +182,9 @@ describe('ui-navbar', function () {
             expect(element.find('li').eq(0).find('ul').eq(0).find('li').eq(1).find('a').eq(0).text()).toEqual('state 2');
         });
 
-        it('should have the second <ul> element with one first nested element <li> and only one state', function () {
+        /*it('should have the second <ul> element with one first nested element <li> and only one state', function () {
 
             console.log(element.find('li').eq(0).hasClass('dropdown-submenu'));
-        });
+        });*/
     });
 });
