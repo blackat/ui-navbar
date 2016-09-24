@@ -23,8 +23,16 @@ module.exports = function (grunt) {
         },
 
         karma: {
-            unit: {
+            options: {
                 configFile: 'karma.conf.js'
+            },
+            unit: {
+                singleRun: true
+            },
+            travis: {
+                singleRun: true,
+                autoWatch: false,
+                browsers: ['Chrome']
             }
         },
 
@@ -105,7 +113,15 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', ['jshint','html2js','concat','uglify','cssmin', 'copy']);
+    grunt.registerTask('build', [
+        'jshint',
+        'html2js',
+        'karma:travis',
+        'concat',
+        'uglify',
+        'cssmin',
+        'copy'
+    ]);
 
     grunt.registerTask('e2e', [
         'connect:server',

@@ -20,6 +20,14 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
             .state('state2', {
                 url: "/state2",
                 templateUrl: "partials/state2.html"
+            })
+            .state('state3', {
+                url: "/state3",
+                templateUrl: "partials/state3.html"
+            })
+            .state('state4', {
+                url: "/state4",
+                templateUrl: "partials/state4.html"
             });
     })
 
@@ -30,13 +38,17 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
             link: "#",
             subtree: [{
                 name: "state 1",
-                link: "state1"
+                link: "state1",
+                subtree: [{
+                    name: "state 3",
+                    link: "state3"
+                }]
             }, {
                 name: "state 2",
                 link: "state2",
                 subtree: [{
-                    name: "state unknown",
-                    link: "state unknown 2",
+                    name: "state 4",
+                    link: "state4"
                 }]
             }]
         }, {

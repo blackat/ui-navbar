@@ -15,17 +15,22 @@ module.exports = function (config) {
 
         // list of files / patterns to load in the browser
         files: [
+
+            // include dependencies
             'node_modules/angular/angular.js',
             'node_modules/angular-mocks/angular-mocks.js',
             'node_modules/angular-ui-router/release/angular-ui-router.js',
-            'node_modules/angular-ui-bootstrap/ui-bootstrap.js',
-            'src/navbar.js',
-            'src/navbar.spec.js',
-            'src/directive.spec.js',
+            'node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js',
 
-            //include the directory where directive templates are stored.
+            // include navbar directive
+            'src/navbar.js',
+
+            // include directive templates
             'template/navbar-ul.html.js',
-            'template/navbar-li.html.js'
+            'template/navbar-li.html.js',
+
+            // include test folder
+            'test/*.spec.js'
         ],
 
 

@@ -33,9 +33,9 @@ Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion 
 
 ## Dependencies
 
-- AngularJS, required 1.4.x, tested with 1.4.8.
-- UI Boostrap, required 0.14.0, tested with 1.1.1.
-- ui-router, required 0.2.15, tested with 0.2.15.
+- AngularJS, required 1.5.x, tested with 1.5.8.
+- UI Boostrap, required 1.1.1, tested with 2.1.4.
+- ui-router, required 0.2.15, tested with 0.3.1.
 - Twitter Bootstrap, required 3.3.6, tested with 3.3.6.
 
 ## Update
@@ -51,7 +51,7 @@ Dependencies are [ui-boostrap](https://github.com/angular-ui/bootstrap) to manag
 ## Plunkr live demo
 
 - version < 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=info)
-- version > 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/zyxXk6w079OgswKHQgno?p=info)
+- version > 2.1.x Live demo at [Plunkr](http://plnkr.co/edit/0WnwMBQsweD7faM3QF5W)
 
 ## How to setup the ui-navbar
 
