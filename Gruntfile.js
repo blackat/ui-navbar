@@ -113,7 +113,7 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.registerTask('build', [
+    grunt.registerTask('default', [
         'jshint',
         'html2js',
         'karma:travis',
