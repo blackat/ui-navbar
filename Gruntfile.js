@@ -25,6 +25,11 @@ module.exports = function (grunt) {
         karma: {
             unit: {
                 configFile: 'karma.conf.js'
+            },
+            travis: {
+                configFile: 'karma.conf.js',
+                singleRun: true,
+                autoWatch: false
             }
         },
 
@@ -108,7 +113,17 @@ module.exports = function (grunt) {
     grunt.registerTask('default', [
         'jshint',
         'html2js',
-        'karma',
+        'karma:travis',
+        'concat',
+        'uglify',
+        'cssmin',
+        'copy'
+    ]);
+
+    grunt.registerTask('build', [
+        'jshint',
+        'html2js',
+        'karma:unit',
         'concat',
         'uglify',
         'cssmin',
