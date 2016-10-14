@@ -6,7 +6,7 @@
     "Eugenio Lentini <eugenio_lentini@fastmail.fm> (http://blackat.github.io)"
   ],
   "description": "Angular responsive navigation with recursive menu and sub-menu construction",
-  "main": "release/js/ui-navbar.js, release/css/ui-navbar.css",
+  "main": "[release/js/ui-navbar.js, release/css/ui-navbar.css]",
   "keywords": [
     "ui-boostrap",
     "boostrap",
