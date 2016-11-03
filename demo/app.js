@@ -28,6 +28,10 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
             .state('state4', {
                 url: "/state4",
                 templateUrl: "partials/state4.html"
+            })
+            .state('metal-gear', {
+                url: "/metal-gear",
+                templateUrl: "partials/metal-gear.html"
             });
     })
 
@@ -72,4 +76,96 @@ angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
             name: "Here again no state set up",
             link: "#"
         }];
+
+        $scope.trees = [{
+            name: "Konami",
+            link: "#",
+            subtree: [{
+                name: "Metal Gear",
+                link: "#",
+                subtree: [{
+                    name: "Metal Gear",
+                    link: "metal-gear"
+                }, {
+                    name: "Metal Gear 2: Solid Snake",
+                    link: "#"
+                }, {
+                    name: "Metal Gear Solid: The Twin Snakes",
+                    link: "#"
+                }]
+            }, {
+                name: "divider",
+                link: "#"
+            }, {
+                name: "Castlevania",
+                link: "#",
+                subtree: [{
+                    name: "Castlevania",
+                    link: "#"
+                }, {
+                    name: "Castlevania II: Simon's Quest",
+                    link: "#"
+                }, {
+                    name: "Castlevania III: Dracula's Curse",
+                    link: "#"
+                }]
+            }]
+        }, {
+            name: "SNK",
+            link: "#",
+            subtree: [{
+                name: "Fatal Fury",
+                link: "#",
+                subtree: [{
+                    name: "Fatal Fury",
+                    link: "#"
+                }, {
+                    name: "Fatal Fury 2",
+                    link: "#"
+                }, {
+                    name: "Fatal Fury: King of Fighters",
+                    link: "#"
+                }, {
+                    name: "Fatal Fury Special",
+                    link: "#"
+                }]
+            }, {
+                name: "divider",
+                link: "#"
+            }, {
+                name: "Metal Slug",
+                link: "#",
+                subtree: [{
+                    name: "Metal Slug",
+                    link: "#"
+                }, {
+                    name: "Metal Slug 2",
+                    link: "#"
+                }, {
+                    name: "Metal Slug 3",
+                    link: "#"
+                }, {
+                    name: "Metal Slug 4",
+                    link: "#"
+                }, {
+                    name: "Metal Slug 5",
+                    link: "#"
+                }, {
+                    name: "Metal Slug 6",
+                    link: "#"
+                }, {
+                    name: "Metal Slug 7",
+                    link: "#"
+                }, {
+                    name: "Metal Slug X",
+                    link: "#"
+                }]
+            }]
+        }, {
+            name: "Sega",
+            link: "#"
+        },{
+            name: "Nintendo",
+            link: "#"
+        }]
     });

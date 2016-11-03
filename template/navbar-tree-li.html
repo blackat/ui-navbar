@@ -1,0 +1,4 @@
+<li ng-repeat="tree in trees" class="dropdown" uib-dropdown on-toggle="toggled(open)" ui-sref-active="active">
+    <a href="#" class="dropdown-toggle" uib-dropdown-toggle role="button">{{tree.name}}<span class='caret'></span></a>
+    <tree tree='tree.subtree'></tree>
+</li>
