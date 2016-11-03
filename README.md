@@ -5,7 +5,7 @@
 [![Build Status](https://travis-ci.org/blackat/ui-navbar.svg?branch=master)](https://travis-ci.org/blackat/ui-navbar)
 [![devDependency Status](https://david-dm.org/blackat/ui-navbar/dev-status.svg?branch=master)](https://david-dm.org/blackat/ui-navbar#info=devDependencies)
 
-## Quick description
+## Introduction
 Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion using `ui-router` to load partials. 
 
 The directive can now be used in 3 different ways: buttons or icons, navbar with separated drop-down menu or single tree structure.
