@@ -7,6 +7,7 @@ describe('ui-navbar', function () {
     beforeEach(module('ui.navbar'));
     beforeEach(module('template/navbar-ul.html'));
     beforeEach(module('template/navbar-li.html'));
+    beforeEach(module('template/navbar-tree-li.html'));
 
     beforeEach(inject(function (_$compile_, _$rootScope_) {
         scope = _$rootScope_.$new();

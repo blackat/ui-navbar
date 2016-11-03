@@ -29,6 +29,7 @@ module.exports = function (config) {
             // include directive templates
             'template/navbar-ul.html.js',
             'template/navbar-li.html.js',
+            'template/navbar-tree-li.html.js',
 
             // include test folder
             'test/*.spec.js'
