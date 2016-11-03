@@ -123,7 +123,7 @@ module.exports = function (grunt) {
     grunt.registerTask('build', [
         'jshint',
         'html2js',
-        //'karma:unit',
+        'karma:unit',
         'concat',
         'uglify',
         'cssmin',
