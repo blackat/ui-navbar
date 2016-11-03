@@ -10,6 +10,11 @@ Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion 
 
 The directive can now be used in 3 different ways: buttons or icons, navbar with separated drop-down menu or single tree structure.
 
+## Plunkr live demo
+
+- version < 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=info)
+- version > 2.2.0 Live demo at [Plunkr](https://plnkr.co/edit/svsAXSVyeiJm8StMB07n)
+
 ## 1. Installation
 Via npm
 ```
@@ -227,11 +232,6 @@ state if required.
 
 ## Prefix
 - Prefixed `angular-ui-bootstrap` components in the `index.html` demo page according to the [migration guide](https://github.com/angular-ui/bootstrap/wiki/Migration-guide-for-prefixes).
-
-## Plunkr live demo
-
-- version < 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=info)
-- version > 2.2.0 Live demo at [Plunkr](https://plnkr.co/edit/svsAXSVyeiJm8StMB07n)
 
 ## Demo
 From the folder `demo` type
