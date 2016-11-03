@@ -6,6 +6,7 @@ describe('navbar test suite', function () {
     beforeEach(module('ui.navbar'));
     beforeEach(module('template/navbar-ul.html'));
     beforeEach(module('template/navbar-li.html'));
+    beforeEach(module('template/navbar-tree-li.html'));
 
     beforeEach(inject(function ($rootScope, $compile, $templateCache) {
 
