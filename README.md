@@ -6,73 +6,201 @@
 [![devDependency Status](https://david-dm.org/blackat/ui-navbar/dev-status.svg?branch=master)](https://david-dm.org/blackat/ui-navbar#info=devDependencies)
 
 ## Quick description
-Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion using ui-router to load partials. 
-The menu items as well as the corresponding states are set in a `json` object.
+Build a responsive navigation menu bar with sub-menu in a __recursive__ fashion using `ui-router` to load partials. 
 
-The directive can now build a navigation menu in 3 different ways.
+The directive can now be used in 3 different ways: buttons or icons, navbar with separated drop-down menu or single tree structure.
 
-#### Buttons or icons with multi-level dropdown
-// todo
-
-#### Separated menu items
-Specify an array of states for each menu item in the navigation bar:
-```json
-$scope.tree = [{
-        name: "States",
-        link: "#",
-        subtree: [{
-            name: "state 1",
-            link: "state1"
-        },{
-            name: "state 2",
-            link: "state2"
-        }]
-    }];
+## 1. Installation
+Via npm
+```
+npm install ui-navbar --save
 ```
 
-#### All-in-one
-Specify an array representing the all tree, with all the states and subtree for of each
-state if required.
-```json
-        $scope.trees = [{
-            name: "Konami",
+or via Bower
+```
+bower install ui-navbar --save
+```
+
+## 2. Configure routing in your module adding required dependencies
+```javascript
+angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
+
+    .config(function ($stateProvider, $urlRouterProvider) {
+
+        // For any unmatched url, redirect to /state1
+        $urlRouterProvider.otherwise("/home");
+
+        // Now set up the states
+        $stateProvider
+            .state('home', {
+                url: "/home",
+                templateUrl: "home.html"
+            })
+            .state('metal-gear', {
+                url: "/metal-gear",
+                templateUrl: "metal-gear.html"
+            })
+            .state('metal-gear2', {
+                url: "/metal-gear2",
+                templateUrl: "metal-gear2.html"
+            })
+            .state('metal-gear-solid', {
+                url: "/metal-gear-solid",
+                templateUrl: "metal-gear-solid.html"
+            });
+    });
+```
+
+## 3. Configure the controller
+```javascript
+angular.module('App').controller('NavigationController', function ($scope) {
+    
+    $scope.konami = [{
+        name: "Konami",
+        link: "#",
+        subtree: [{
+            name: "Metal Gear",
             link: "#",
             subtree: [{
                 name: "Metal Gear",
-                link: "#",
-                subtree: [{
-                    name: "Metal Gear",
-                    link: "metal-gear"
-                }, {
-                    name: "Metal Gear 2: Solid Snake",
-                    link: "#"
-                }, {
-                    name: "Metal Gear Solid: The Twin Snakes",
-                    link: "#"
-                }]
+                link: "metal-gear"
             }, {
-                name: "divider",
+                name: "Metal Gear 2: Solid Snake",
+                link: "metal-gear2"
+            }, {
+                name: "Metal Gear Solid: The Twin Snakes",
+                link: "metal-gear-solid"
+            }]
+        }]
+    }];
+
+    $scope.trees = [{
+        name: "Konami",
+        link: "#",
+        subtree: [{
+            name: "Metal Gear",
+            link: "#",
+            subtree: [{
+                name: "Metal Gear",
+                link: "metal-gear"
+            }, {
+                name: "Metal Gear 2: Solid Snake",
                 link: "#"
             }, {
-                name: "Castlevania",
-                link: "#",
-                subtree: [{
-                 ...
-                }]
+                name: "Metal Gear Solid: The Twin Snakes",
+                link: "#"
             }]
         }, {
-            name: "SNK",
+            name: "divider",
+            link: "#"
+        }, {
+            name: "Castlevania",
             link: "#",
             subtree: [{
                 ...
             }]
-        }, {
-            name: "Sega",
-            link: "#"
-        },{
-            name: "Nintendo",
-            link: "#"
         }]
+    }]
+}
+```
+
+## 4. Html parts
+
+### Add `ui-view` to attach the partials.
+```html
+<!-- Hook here the partials -->
+<div ui-view=""></div>
+```
+
+
+### Button
+Add a multi-level menu to a drop down button rendering the previously introduced items:
+```javascript
+<div btn-group="" uib-dropdown="">
+    <button uib-dropdown-toggle="" type="button" class="btn btn-primary">
+        Dropdown <b class="caret"></b>
+    </button>
+    <tree tree="konami"></tree>
+</div>
+```
+
+### Navigation bar with separated multi-level dropdown menu.
+Specify an array of states for each menu item in the navigation bar:
+```html
+<div ng-controller="NavigationController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" ui-sref="home">Konami</a>
+        </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <li uib-dropdown="">
+                    <a href="#" uib-dropdown-toggle="">
+                        Dropdown<b class="caret"></b>
+                    </a>
+                    <tree tree="konami"></tree>
+                </li>
+                <li uib-dropdown="">
+                    <a href="#" uib-dropdown-toggle="">
+                        Just a clone
+                        <span class="caret"></span>
+                    </a>
+                    <tree tree="konami"></tree>
+                </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                <li uib-dropdown="">
+                    <a href="#" uib-dropdown-toggle="">
+                        Dropdown right<b class="caret"></b>
+                    </a>
+                    <tree tree="konami"></tree>
+                </li>
+                <li uib-dropdown="">
+                    <a href="#" uib-dropdown-toggle="">
+                        Just a clone right<span class="caret"></span>
+                    </a>
+                    <tree tree="konami"></tree>
+                </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
+```
+
+
+### Navigation bar with a single tree structure
+Specify an array representing the all tree, with all the states and subtree for of each
+state if required.
+```html
+<div ng-controller="NavigationController">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#">Games</a>
+        </div>
+
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
+            <ul class="nav navbar-nav">
+                <trees trees="allGames"></trees>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </nav>
+</div>
 ```
 
 ## Features
@@ -100,311 +228,10 @@ state if required.
 ## Prefix
 - Prefixed `angular-ui-bootstrap` components in the `index.html` demo page according to the [migration guide](https://github.com/angular-ui/bootstrap/wiki/Migration-guide-for-prefixes).
 
-## How it's done
-It is a collection of directives and templates to create recursively a navigation bar in AngularJS based on Html attributes used to define a dropdown menu defined in ui-boostrap package.
-
-Dependencies are [ui-boostrap](https://github.com/angular-ui/bootstrap) to manage dropdown and collapse, then [ui-router](https://github.com/angular-ui/ui-router) to manage routing to partials.
-
 ## Plunkr live demo
 
 - version < 0.14.x Live demo at [Plunkr](http://plnkr.co/edit/V7tecYv4wNPP198HRQlJ?p=info)
-- version > 2.1.x Live demo at [Plunkr](http://plnkr.co/edit/0WnwMBQsweD7faM3QF5W)
-
-## Getting started
-Via npm
-```
-npm install ui-navbar --save
-```
-
-or via Bower
-```
-bower install ui-navbar --save
-```
-
-## How to setup the ui-navbar
-
-### Seprated menu items
-#### 1) Html part for the nav bar:
-```html
-<div ng-controller="NavigationController">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true"
-                    ng-click="navCollapsed = !navCollapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" ui-sref="home">Brand</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-
-            <ul class="nav navbar-nav">
-                <li uib-dropdown>
-                    <a href="#" uib-dropdown-toggle>
-                        Dropdown
-                        <b class='caret'></b>
-                    </a>
-                    <tree tree='tree'></tree>
-                </li>
-                <li uib-dropdown>
-                    <a href="#" uib-dropdown-toggle>
-                        Just a clone
-                        <span class='caret'></span>
-                    </a>
-                    <tree tree='tree'></tree>
-                </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                <li uib-dropdown>
-                    <a href="#" uib-dropdown-toggle>
-                        Dropdown right
-                        <b class='caret'></b>
-                    </a>
-                    <tree tree='tree'></tree>
-                </li>
-                <li uib-dropdown>
-                    <a href="#" uib-dropdown-toggle>
-                        Just a clone right
-                        <span class='caret'></span>
-                    </a>
-                    <tree tree='tree'></tree>
-                </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
-</div>
-```
-
-#### 2) Html part to hook the partials
-```html
-<!-- Hook here the partials -->
-<div ui-view=""></div>
-```
-
-#### 3) Configure routing in your module adding required dependencies
-```javascript
-angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
-
-    .config(function ($stateProvider, $urlRouterProvider) {
-
-        // For any unmatched url, redirect to /state1
-        $urlRouterProvider.otherwise("/home");
-
-        // Now set up the states
-        $stateProvider
-            .state('home', {
-                url: "/home",
-                templateUrl: "partials/home.html"
-            })
-            .state('state1', {
-                url: "/state1",
-                templateUrl: "partials/state1.html"
-            })
-            .state('state2', {
-                url: "/state2",
-                templateUrl: "partials/state2.html"
-            });
-    })
-```
-#### 4) Configure the controller adding the menu item to be displayed in the nav bar 
-```javascript.controller('NavigationController', function ($scope) {
-
-        $scope.tree = [{
-            name: "States",
-            link: "#",
-            subtree: [{
-                name: "state 1",
-                link: "state1"
-            },{
-                name: "state 2",
-                link: "state2"
-            }]
-        }, {
-            name: "No states",
-            link: "#",
-            subtree: [{
-                name: "no state connected",
-                link: "#"
-            }]
-        }, {
-            name: "divider",
-            link: "#"
-
-        }, {
-            name: "State has not been set up",
-            link: "#"
-        }, {
-            name: "divider",
-            link: "#"
-        }, {
-            name: "Here again no state set up",
-            link: "#"
-        }];
-    });
-```
-
-### All-in-one
-#### 1) Html part for the nav bar:
-```html
-<div ng-controller="NavigationController">
-    <nav class="navbar navbar-default" role="navigation">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" ng-init="navCollapsed = true"
-                    ng-click="navCollapsed = !navCollapsed">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#">Games</a>
-        </div>
-
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse" ng-class="!navCollapsed && 'in'">
-
-            <ul class="nav navbar-nav">
-                <trees trees="trees"></trees>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </nav>
-</div>
-```
-
-#### 2) Html part to hook the partials
-```html
-<!-- Hook here the partials -->
-<div ui-view=""></div>
-```
-
-#### 3) Configure routing in your module adding required dependencies
-```javascript
-angular.module('App', ['ui.bootstrap', 'ui.router', 'ui.navbar'])
-
-    .config(function ($stateProvider, $urlRouterProvider) {
-
-        // For any unmatched url, redirect to /state1
-        $urlRouterProvider.otherwise("/home");
-
-        // Now set up the states
-        $stateProvider
-            .state('metal-gear', {
-                url: "/metal-gear",
-                templateUrl: "partials/metal-gear.html"
-            })
-            .state('metal-gear2', {
-                url: "/metal-gear2",
-                templateUrl: "partials/metal-gear2.html"
-            })
-            .state('metal-gear3', {
-                url: "/metal-gear3",
-                templateUrl: "partials/metal-gear3.html"
-            });
-            // not all the states have been provided
-    })
-```
-
-#### 4) Configure the controller adding the menu item to be displayed in the nav bar 
-```javascript.controller('NavigationController', function ($scope) {
-
-        $scope.trees = [{
-            name: "Konami",
-            link: "#",
-            subtree: [{
-                name: "Metal Gear",
-                link: "#",
-                subtree: [{
-                    name: "Metal Gear",
-                    link: "metal-gear"
-                }, {
-                    name: "Metal Gear 2: Solid Snake",
-                    link: "metal-gear2"
-                }, {
-                    name: "Metal Gear Solid: The Twin Snakes",
-                    link: "metal-gear3"
-                }]
-            }, {
-                name: "divider",
-                link: "#"
-            }, {
-                name: "Castlevania",
-                link: "#",
-                subtree: [{
-                    name: "Castlevania",
-                    link: "#"
-                }, {
-                    name: "Castlevania II: Simon's Quest",
-                    link: "#"
-                }, {
-                    name: "Castlevania III: Dracula's Curse",
-                    link: "#"
-                }]
-            }]
-        }, {
-            name: "SNK",
-            link: "#",
-            subtree: [{
-                name: "Fatal Fury",
-                link: "#",
-                subtree: [{
-                    name: "Fatal Fury",
-                    link: "#"
-                }, {
-                    name: "Fatal Fury 2",
-                    link: "#"
-                }, {
-                    name: "Fatal Fury: King of Fighters",
-                    link: "#"
-                }, {
-                    name: "Fatal Fury Special",
-                    link: "#"
-                }]
-            }, {
-                name: "divider",
-                link: "#"
-            }, {
-                name: "Metal Slug",
-                link: "#",
-                subtree: [{
-                    name: "Metal Slug",
-                    link: "#"
-                }, {
-                    name: "Metal Slug 2",
-                    link: "#"
-                }, {
-                    name: "Metal Slug 3",
-                    link: "#"
-                }, {
-                    name: "Metal Slug 4",
-                    link: "#"
-                }, {
-                    name: "Metal Slug 5",
-                    link: "#"
-                }, {
-                    name: "Metal Slug 6",
-                    link: "#"
-                }, {
-                    name: "Metal Slug 7",
-                    link: "#"
-                }, {
-                    name: "Metal Slug X",
-                    link: "#"
-                }]
-            }]
-        }, {
-            name: "Sega",
-            link: "#"
-        },{
-            name: "Nintendo",
-            link: "#"
-        }];
-    });
-```
+- version > 2.2.0 Live demo at [Plunkr](https://plnkr.co/edit/svsAXSVyeiJm8StMB07n)
 
 ## Demo
 From the folder `demo` type
